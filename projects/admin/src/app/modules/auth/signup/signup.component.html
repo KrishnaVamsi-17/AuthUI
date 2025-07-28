@@ -1,3 +1,35 @@
-<div>
-    Signup WOrks
+<div class="signup-container">
+    <div class="welcome-message">
+    <h1>Create an account</h1>
+    <span>The secret of getting ahead is getting started.</span>
+    </div>
+    
+    <div class="signup-form">
+        <form>
+            <div class="form-group">
+                <label for="fullName">FullName:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="FullName" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+             <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="PhoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+
+    </div>
 </div>

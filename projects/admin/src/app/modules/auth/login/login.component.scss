@@ -4,10 +4,19 @@
     justify-content: space-between;
     gap:25px;
     user-select: none;
+    min-width: 400px;
+    border:1px solid #919090;
+    padding:2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(162, 161, 161);
+    max-width:400px;
+    background-color: rgba(250, 249, 249, 0.8);
 
     .welcome-message{
         display: flex;
         flex-direction: column;        
+        text-align: center;
+
     }
     .welcome-message p{
         margin: 0;
@@ -28,8 +37,10 @@
             flex-direction: column;
         }
         .form-group label{
-            font-size: 1rem;
+            font-size: 0.875rem;
             margin-bottom: 5px;
+            font-family: "Exo 2", system-ui;
+
         }
         .form-group input{
             padding: 10px;
@@ -44,7 +55,7 @@
             outline: none;
         }
         .error{
-            color:rgb(228, 127, 127);
+            color:rgb(242, 7, 7);
             font-size: 0.875rem;
             margin:0;
             margin-left: 10px;

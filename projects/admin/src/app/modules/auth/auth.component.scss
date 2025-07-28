@@ -1,19 +1,21 @@
-:host{ 
+.auth-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  // background-size: cover;
+  background: linear-gradient(
+      rgba(70, 70, 70, 0.9),
+      rgba(61, 61, 61, 0.9)
+    ),
+    url("../../../assets/html.jpg");
+  background-size: cover;
+  background-position: center;
 
-}
-
-.auth-container{
-    // height: 100vh;
-    // width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // background-color: rgb(205, 30, 30);
-
-    .left-container{
-        
-    }
-    .right-container{
-
-    }
+  .left-container {
+  }
+  .right-container {
+  }
 }

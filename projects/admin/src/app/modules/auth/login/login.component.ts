@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { SharedLibService } from '../../../../../../shared-lib/src/public-api';
 import { InputComponent } from "../../../../../../ui-kit/src/public-api";
 import { AuthService } from '../auth.service';
+import { AuthLoginModel } from '../../../models/auth-login-model';
 
 
 @Component({
@@ -18,14 +19,6 @@ export class LoginComponent {
   private _sharedLibService: SharedLibService = inject(SharedLibService);
   private _authService: AuthService = inject(AuthService);
    constructor(private router: Router, private _http: HttpClient , private sharedLibService: SharedLibService) {
-      console.log('LoginComponent initialized');
-      console.log('SharedLibService:', this._sharedLibService);
-      console.log('Router:', this.router);
-      console.log('HttpClient:', this._http);
-      // Fetch data from the shared library service
-      // this._sharedLibService.getData().subscribe((data) => {
-      //   console.log('Data fetched from shared lib service:', data);
-      // });
     }
      loginForm:FormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -33,9 +26,14 @@ export class LoginComponent {
      });
     async login() {
       console.log("Successfully Loggedin");
-      console.log(this.loginForm);
-      await this._authService.login(this.loginForm.value.email, this.loginForm.value.password).then(() => {
+      const auth: AuthLoginModel = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      };
+      await this._authService.login(auth).then((result) => {
         console.log('Login successful');
+        console.log(result);
+        
         // this.router.navigate(['/dashboard']);
       });
     }
