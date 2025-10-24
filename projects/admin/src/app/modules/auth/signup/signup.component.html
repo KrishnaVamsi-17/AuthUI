@@ -1,35 +1,73 @@
 <div class="signup-container">
-    <div class="welcome-message">
+  <div class="welcome-message">
     <h1>Create an account</h1>
     <span>The secret of getting ahead is getting started.</span>
-    </div>
-    
-    <div class="signup-form">
-        <form>
-            <div class="form-group">
-                <label for="fullName">FullName:</label>
-                <input type="text" id="fullName" name="fullName" placeholder="FullName" required>
-            </div>
-           
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-            </div>
-             <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="PhoneNumber" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
-            </div>
-            <button type="submit">Register</button>
-        </form>
-    <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+  </div>
 
-    </div>
+  <div class="signup-form">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">FullName:</label>
+        <input
+          type="text"
+          id="fullName"
+          formControlName="fullName"
+          placeholder="FullName"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="PhoneNumber"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
+        <ng-container
+          *ngIf="
+            signupForm.controls['confirmPassword'].dirty &&
+            signupForm.controls['password'].value !==
+              signupForm.controls['confirmPassword'].value
+          "
+        >
+          <span class="error">Passwords do not match</span>
+        </ng-container>
+      </div>
+      <button>Register</button>
+    </form>
+    <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+  </div>
 </div>
